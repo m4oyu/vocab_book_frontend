@@ -1,4 +1,8 @@
 # vocab-book-front
+2021/05/09\
+project作成, 
+[axios](https://github.com/axios/axios)の導入\
+""と''が違うだけでうまくいかないことがあった
 
 ## Project setup
 ```
