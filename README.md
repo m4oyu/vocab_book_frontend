@@ -1,8 +1,4 @@
 # vocab-book-front
-2021/05/09\
-project作成, 
-[axios](https://github.com/axios/axios)の導入\
-""と''が違うだけでうまくいかないことがあった
 
 ## Project setup
 ```
@@ -26,3 +22,19 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Development log
+2021/05/13\
+vue-cookiesのhttponlyを設定する方法がなさそう。
+vue-routerを導入した。
+
+2021/05/10\
+tokenの保存方法にCookieを選択\
+[vue-cookies](https://github.com/cmp-cc/vue-cookies/)の導入\
+参考：[Vue.jsエンジニアなら知っておきたいセキュリティー](https://kotamat.com/post/vuejs-security/)
+
+2021/05/09\
+project作成, 
+[axios](https://github.com/axios/axios)の導入\
+""と''が違うだけでうまくいかないことがあった
+
