@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <Login></Login>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <div>
+      <router-link to="/user/signup/">go to signup</router-link> |
+      <router-link to="/user/signin/">go to signin</router-link>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import Login from './components/Login.vue'
-
 export default {
-  name: 'App',
-  components: {
-    Login
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
 <style>
