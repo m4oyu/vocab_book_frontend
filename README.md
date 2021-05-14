@@ -24,6 +24,14 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Development log
+2021/05/14\
+vue-cookieはすでにhttponly設定がされていることが判明。\
+XSS攻撃への対策
+- 信頼できないCDNのコードを含めない
+- ユーザからのinputに悪意を持ったコードが含まれないようバリデーションする。
+- httponlyを設定（完全ではない）
+
+
 2021/05/13\
 vue-cookiesのhttponlyを設定する方法がなさそう。
 vue-routerを導入した。
