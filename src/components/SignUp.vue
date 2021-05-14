@@ -11,16 +11,14 @@
         <input v-model="password">
       </p>
       <p>
-        <input @click="SignUp" type="submit" value="submit">
+        <input @click="SignUp" type="button" value="submit">
       </p>
     </form>
-    <div>
-      <p>{{ cookie }}</p>
-    </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import axios from 'axios'
 
 export default {
@@ -29,11 +27,6 @@ export default {
     return {
       mail: '',
       password: '',
-    }
-  },
-  computed: {
-    cookie() {
-      return this.$cookies.get(this.mail);
     }
   },
   methods: {
@@ -50,12 +43,11 @@ export default {
       })
     },
     setCookie: function(token){
-      this.$cookies.config('1d');
-      this.$cookies.set(this.mail, token);
+      Vue.$cookies.config('1d');
+      Vue.$cookies.set(this.mail, token);
     },
     getCookie:function(){
-      console.log(this.$cookies.get("token"));
-      return this.$cookies.get(this.mail);
+      return Vue.$cookies.get(this.mail);
     }
   }
 }

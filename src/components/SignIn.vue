@@ -11,17 +11,15 @@
         <input v-model="password">
       </p>
       <p>
-        <input @click="SignUp" type="submit" value="submit">
+        <input @click="SignUp" type="button" value="submit">
       </p>
     </form>
-    <div>
-      <p>cookie:{{ cookie }}</p>
-    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import Vue from 'vue'
 
 export default {
   name: "SignIn",
@@ -31,11 +29,6 @@ export default {
       password: '',
     }
   },
-  computed: {
-    cookie() {
-      return this.$cookies.get(this.mail);
-    }
-  },
   methods: {
     SignUp: function(){
       axios.post('http://localhost:80/login', {
@@ -43,20 +36,19 @@ export default {
         password: this.password
       })
       .then(function(response){
-        console.log(response);
-        this.setCookie("aaaaa");
+        console.log("axios.post succeed");
+        this.setCookie(response.data.token);
       })
       .catch(function(error) {
         console.log(error);
       })
     },
     setCookie: function(token){
-      this.$cookies.config('1d');
-      this.$cookies.set(this.mail, token);
+      Vue.$cookies.config('7d');
+      Vue.$cookies.set('vocab_book_cookie', token);
     },
     getCookie:function(){
-      console.log(this.$cookies.get("token"));
-      return this.$cookies.get(this.mail);
+      return Vue.$cookies.get(this.mail);
     }
   }
 }
