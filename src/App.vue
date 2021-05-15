@@ -3,7 +3,8 @@
     <img alt="Vue logo" src="./assets/logo.png" />
     <div>
       <router-link to="/user/signup/">go to signup</router-link> |
-      <router-link to="/user/signin/">go to signin</router-link>
+      <router-link to="/user/signin/">go to signin</router-link> |
+      <router-link to="/translate/">go to Translate</router-link>
       <router-view></router-view>
     </div>
   </div>

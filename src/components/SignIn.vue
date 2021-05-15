@@ -37,18 +37,12 @@ export default {
       })
       .then(function(response){
         console.log("axios.post succeed");
-        this.setCookie(response.data.token);
+        Vue.$cookies.config('7d');
+        Vue.$cookies.set('vocab_book_cookie', response.data.token);
       })
       .catch(function(error) {
         console.log(error);
       })
-    },
-    setCookie: function(token){
-      Vue.$cookies.config('7d');
-      Vue.$cookies.set('vocab_book_cookie', token);
-    },
-    getCookie:function(){
-      return Vue.$cookies.get(this.mail);
     }
   }
 }

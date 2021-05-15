@@ -30,15 +30,19 @@ export default {
   },
   methods: {
     Translate: function(){
-      axios.post('http://localhost:80/auth/translate', {
-        text: this.english
-      })
-      .then(function(response){
-        console.log("translate" + this.english + "succeed");
-        this.setCookie(response.data.token);
-      })
-      .catch(function(error) {
-        console.log(error);
+      let self = this;
+      axios({
+        method: 'post',
+        url: 'http://localhost:80/auth/translate',
+        headers: {
+          'Authorization': 'Bearer ' + this.getCookie()
+        },
+        data: {
+          text: this.english,
+        }
+      }).then(function(response){
+        console.log(response.data.text);
+        self.japanese = response.data.text
       })
     },
     setCookie: function(token){
@@ -46,7 +50,7 @@ export default {
       Vue.$cookies.set('vocab_book_cookie', token);
     },
     getCookie:function(){
-      return Vue.$cookies.get(this.mail);
+      return Vue.$cookies.get('vocab_book_cookie');
     }
   }
 }
