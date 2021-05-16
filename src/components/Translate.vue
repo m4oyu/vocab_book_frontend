@@ -1,57 +1,82 @@
 <template>
-  <div>
-    <form action="login-form" >
-      <p>
-        <label for="name">English:</label>
-        <input v-model="english">
-      </p>
-      <p>
-        <label for="name">Japanese:</label>
-        <input v-model="japanese">
-      </p>
-      <p>
-        <input @click="Translate" type="button" value="translate">
-      </p>
-    </form>
-  </div>
+  <b-card class="container">
+    <h1>Translate</h1>
+    <div class="d-flex flex-row">
+      <b-form-group
+        label="English"
+        label-size="lg"
+        label-for="english-textarea"
+        class="d-inline w-50"
+      >
+        <b-form-textarea
+          id="english-textarea"
+          class="input_form"
+          v-model="english"
+          rows="8"
+          size="lg"
+        ></b-form-textarea>
+      </b-form-group>
+      <b-form-group
+        label="Japanese"
+                label-size="lg"
+
+        label-for="japanese-textarea"
+        class="d-inline w-50"
+      >
+        <b-form-textarea
+          id="japanese-textarea"
+          class="input_form"
+          v-model="japanese"
+          rows="8"
+          disabled
+          size="lg"
+        ></b-form-textarea>
+      </b-form-group>
+    </div>
+
+    <b-button @click="Translate" block variant="primary" class="mt-4 mb-4">Translate</b-button>
+
+  </b-card>
 </template>
 
 <script>
-import Vue from 'vue'
-import axios from 'axios'
+import Vue from "vue";
+import axios from "axios";
 
 export default {
   name: "Translate",
   data() {
     return {
-      english: '',
-      japanese: '',
-    }
+      english: "",
+      japanese: "",
+    };
   },
   methods: {
-    Translate: function(){
+    Translate: function() {
       let self = this;
       axios({
-        method: 'post',
-        url: 'http://localhost:80/auth/translate',
+        method: "post",
+        url: "http://localhost:80/auth/translate",
         headers: {
-          'Authorization': 'Bearer ' + this.getCookie()
+          Authorization: "Bearer " + this.getCookie(),
         },
         data: {
           text: this.english,
-        }
-      }).then(function(response){
+        },
+      }).then(function(response) {
         console.log(response.data.text);
-        self.japanese = response.data.text
-      })
+        self.japanese = response.data.text;
+      });
     },
-    setCookie: function(token){
-      Vue.$cookies.config('7d');
-      Vue.$cookies.set('vocab_book_cookie', token);
+    setCookie: function(token) {
+      Vue.$cookies.config("7d");
+      Vue.$cookies.set("vocab_book_cookie", token);
     },
-    getCookie:function(){
-      return Vue.$cookies.get('vocab_book_cookie');
-    }
-  }
-}
+    getCookie: function() {
+      return Vue.$cookies.get("vocab_book_cookie");
+    },
+  },
+};
 </script>
+
+<style scoped></style>

@@ -1,24 +1,37 @@
 <template>
-  <div class="login-wrapper">
-    <h1>signup</h1>
-    <form action="login-form" >
-      <p>
-        <label for="name">User:</label>
-        <input v-model="mail">
-      </p>
-      <p>
-        <label for="name">Password:</label>
-        <input v-model="password">
-      </p>
-      <p>
-        <input @click="SignUp" type="button" value="submit">
-      </p>
-    </form>
+  <div class="container">
+    <b-container fluid class="border">
+      <h1 class="mt-4 mb-5">SignUp</h1>
+      <b-row class="m-3">
+        <b-col sm="2">
+          <label for="input-user">User</label>
+        </b-col>
+        <b-col sm="10">
+          <b-form-input
+            id="input-user"
+            placeholder="Enter your mail"
+            v-model="mail"
+          ></b-form-input>
+        </b-col>
+      </b-row>
+      <b-row class="m-3">
+        <b-col sm="2">
+          <label for="input-password">Key</label>
+        </b-col>
+        <b-col sm="10">
+          <b-form-input
+            id="input-password"
+            placeholder="Enter your key"
+            v-model="password"
+          ></b-form-input>
+        </b-col>
+      </b-row>
+      <b-button @click="SignUp" block variant="primary" class="mt-3 mb-4">SignUp</b-button>
+    </b-container>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
 import axios from 'axios'
 
 export default {
@@ -41,14 +54,24 @@ export default {
       .catch(function(error) {
         console.log(error);
       })
-    },
-    setCookie: function(token){
-      Vue.$cookies.config('1d');
-      Vue.$cookies.set(this.mail, token);
-    },
-    getCookie:function(){
-      return Vue.$cookies.get(this.mail);
     }
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  font-size: 200%;
+  margin: 3%;
+}
+@media (max-width: 767px) {
+  .container{
+    width: 375px;
+  }
+}
+@media (min-width: 768px) {
+  .container{
+    width: 50%;
+  } 
+}
+</style>
