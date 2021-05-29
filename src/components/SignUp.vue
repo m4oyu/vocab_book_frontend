@@ -44,9 +44,13 @@ export default {
   },
   methods: {
     SignUp: function(){
-      axios.post('http://localhost:80/signup', {
-        mail:     this.mail,
-        password: this.password
+      axios({
+        method: "post",
+        url: "http://35.194.22.235/signup",
+        data: {
+          mail:     this.mail,
+          password: this.password
+        },        
       })
       .then(function(response){
         console.log(response);

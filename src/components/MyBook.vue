@@ -21,7 +21,7 @@ export default {
       let self = this;
       axios({
         method: "get",
-        url: "http://localhost:80/auth/userBook",
+        url: "http://35.194.22.235/auth/userBook",
         headers: {
           Authorization: "Bearer " + this.getCookie(), 
         },

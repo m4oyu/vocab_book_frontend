@@ -56,7 +56,7 @@ export default {
       let self = this;
       axios({
         method: "post",
-        url: "http://localhost:80/auth/translate",
+        url: "http://35.194.22.235/auth/translate",
         headers: {
           Authorization: "Bearer " + this.getCookie(),
         },
