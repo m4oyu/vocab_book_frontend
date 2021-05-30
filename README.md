@@ -1,22 +1,16 @@
 # vocab-book-front
+翻訳&単語帳アプリケーションのフロントエンドリポジトリです。\
+サーバサイド：https://github.com/m4oyu/vocab_book_backend
 
-### Project Deploy to GCP Cloud Run
-First: Google Cloud SDK Shell
+### Project Run on GCE(Ubuntu)
 ```
-$ gcloud builds submit --tag us-central1-docker.pkg.dev/my-tutorial-47525/quickstart-docker-repo/quickstart-image:tag3
+$ sudo docker build -t vuejs-cookbook/dockerize-vuejs-app .
+$ sudo docker run -p 80:80 --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app
 ```
-Second: Select image & Deploy on Cloud Run
-
-### Project Run on Ubuntu
-```
-$ docker build -t vuejs-cookbook/dockerize-vuejs-app .
-$ docker run -it --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 ### Development log
+2021/5/29\
+first deploy
+
 2021/05/23\
 cloud build時にエラーを吐いたのでnode_modulesを削除したらうまくいった。\
 [refer](https://github.com/vuejs/vue-cli/issues/5210)
