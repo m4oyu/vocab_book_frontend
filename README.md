@@ -1,12 +1,21 @@
 # vocab-book-front
 翻訳&単語帳アプリケーションのフロントエンドリポジトリです。\
+App(demo): http://www.vocabulary-book.com/
 サーバサイド：https://github.com/m4oyu/vocab_book_backend
 
-### Project Run on GCE(Ubuntu)
+## Remote Deploy  (GCE/Ubuntu)
 ```
 $ sudo docker build -t vuejs-cookbook/dockerize-vuejs-app .
 $ sudo docker run -p 80:80 --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app
 ```
+
+## Local Dev (WSL2/Ubuntu)
+```
+$ sudo service docker start
+$ docker build -t vuejs-cookbook/dockerize-vuejs-app .
+$ docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/dockerize-vuejs-app
+```
+
 ### Development log
 2021/5/29\
 first deploy
