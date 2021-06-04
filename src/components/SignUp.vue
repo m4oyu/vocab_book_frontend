@@ -52,8 +52,9 @@ export default {
           password: this.password
         },        
       })
-      .then(function(response){
+      .then((response) => {
         console.log(response);
+        this.$router.push({name: 'signin'});
       })
       .catch(function(error) {
         console.log(error);
