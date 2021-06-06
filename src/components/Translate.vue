@@ -1,9 +1,9 @@
 <template>
   <b-card class="container">
-    <h1>Translate</h1>
+    <!-- <h1>Translate</h1> -->
     <div class="d-flex flex-row">
       <b-form-group
-        label="English"
+        label="英語"
         label-size="lg"
         label-for="english-textarea"
         class="d-inline w-50"
@@ -12,14 +12,14 @@
           id="english-textarea"
           class="input_form"
           v-model="english"
+          placeholder="Enter something ..."
           rows="8"
           size="lg"
         ></b-form-textarea>
       </b-form-group>
       <b-form-group
-        label="Japanese"
-                label-size="lg"
-
+        label="日本語"
+        label-size="lg"
         label-for="japanese-textarea"
         class="d-inline w-50"
       >
@@ -34,8 +34,9 @@
       </b-form-group>
     </div>
 
-    <b-button @click="Translate" block variant="primary" class="mt-4 mb-4">Translate</b-button>
-
+    <b-button @click="Translate" block variant="primary" class="mt-4 mb-4"
+      >Translate</b-button
+    >
   </b-card>
 </template>
 

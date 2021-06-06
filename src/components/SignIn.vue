@@ -28,6 +28,7 @@
       </b-row>
       <b-button @click="SignIn" block variant="primary" class="mt-3 mb-4">SignIn</b-button>
     </b-container>
+    <p>サインアップ完了。<br>こちらのフォームからサインインしてください。</p>
   </div>
 </template>
 
@@ -53,10 +54,11 @@ export default {
             password: this.password,
           },          
         })
-        .then(function(response) {
+        .then((response) => {
           console.log("axios.post succeed");
           Vue.$cookies.config("7d");
           Vue.$cookies.set("vocab_book_cookie", response.data.token);
+          this.$router.push({name: 'translate'});
         })
         .catch(function(error) {
           console.log(error);
