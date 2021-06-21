@@ -18,7 +18,7 @@ $ docker run -it -p 8080:80 --rm --name dockerize-vuejs-app-1 vuejs-cookbook/doc
 
 ### Development log
 2021/5/29\
-first deploy
+first deploy to GCP_GCE(Ubuntu)
 
 2021/05/23\
 cloud build時にエラーを吐いたのでnode_modulesを削除したらうまくいった。\
