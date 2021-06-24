@@ -26,42 +26,46 @@
           ></b-form-input>
         </b-col>
       </b-row>
-      <b-button @click="SignUp" block variant="primary" class="mt-3 mb-4">SignUp</b-button>
+      <b-button @click="SignUp" block variant="primary" class="mt-3 mb-4"
+        >SignUp</b-button
+      >
     </b-container>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
+import server from "../constant/constant";
 
 export default {
   name: "SignUp",
   data() {
     return {
-      mail: '',
-      password: '',
-    }
+      mail: "",
+      password: "",
+    };
   },
   methods: {
-    SignUp: function(){
+    SignUp: function() {
+      var url = server.data().server + "/signup";
       axios({
         method: "post",
-        url: "http://35.194.22.235/signup",
+        url: url,
         data: {
-          mail:     this.mail,
-          password: this.password
-        },        
+          mail: this.mail,
+          password: this.password,
+        },
       })
-      .then((response) => {
-        console.log(response);
-        this.$router.push({name: 'signin'});
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-  }
-}
+        .then((response) => {
+          console.log(response);
+          this.$router.push({ name: "signin" });
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -70,13 +74,13 @@ h1 {
   margin: 3%;
 }
 @media (max-width: 767px) {
-  .container{
+  .container {
     width: 375px;
   }
 }
 @media (min-width: 768px) {
-  .container{
+  .container {
     width: 50%;
-  } 
+  }
 }
 </style>

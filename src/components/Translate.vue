@@ -43,6 +43,7 @@
 <script>
 import Vue from "vue";
 import axios from "axios";
+import server from "../constant/constant";
 
 export default {
   name: "Translate",
@@ -55,9 +56,10 @@ export default {
   methods: {
     Translate: function() {
       let self = this;
+      var url = server.data().server + "/auth/translate";
       axios({
         method: "post",
-        url: "http://35.194.22.235/auth/translate",
+        url: url,
         headers: {
           Authorization: "Bearer " + this.getCookie(),
         },

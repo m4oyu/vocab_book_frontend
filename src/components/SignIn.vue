@@ -26,39 +26,43 @@
           ></b-form-input>
         </b-col>
       </b-row>
-      <b-button @click="SignIn" block variant="primary" class="mt-3 mb-4">SignIn</b-button>
+      <b-button @click="SignIn" block variant="primary" class="mt-3 mb-4"
+        >SignIn</b-button
+      >
     </b-container>
-    <p>サインアップ完了。<br>こちらのフォームからサインインしてください。</p>
+    <p>サインアップ完了。<br />こちらのフォームからサインインしてください。</p>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Vue from "vue";
+import server from "../constant/constant";
 
 export default {
   name: "SignIn",
   data() {
     return {
-      mail: '',
-      password: '',
+      mail: "",
+      password: "",
     };
   },
   methods: {
     SignIn: function() {
+      var url = server.data().server + "/login";
       axios({
-          method: "post",
-          url: "http://35.194.22.235:80/login",
-          data: {
-            mail: this.mail,
-            password: this.password,
-          },          
-        })
+        method: "post",
+        url: url,
+        data: {
+          mail: this.mail,
+          password: this.password,
+        },
+      })
         .then((response) => {
           console.log("axios.post succeed");
           Vue.$cookies.config("7d");
           Vue.$cookies.set("vocab_book_cookie", response.data.token);
-          this.$router.push({name: 'translate'});
+          this.$router.push({ name: "translate" });
         })
         .catch(function(error) {
           console.log(error);
@@ -74,13 +78,13 @@ h1 {
   margin: 3%;
 }
 @media (max-width: 767px) {
-  .container{
+  .container {
     width: 375px;
   }
 }
 @media (min-width: 768px) {
-  .container{
+  .container {
     width: 50%;
-  } 
+  }
 }
 </style>
