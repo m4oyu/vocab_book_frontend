@@ -5,6 +5,8 @@ import SignUp from '../components/SignUp.vue'
 import SignIn from '../components/SignIn.vue'
 import Translate from '../components/Translate.vue'
 import MyBook from '../components/MyBook.vue'
+import Review from '../components/Review.vue'
+
 
 Vue.use(VueRouter)
 
@@ -33,6 +35,11 @@ const routes = [
     path: '/book',
     name: 'myBook',
     component: MyBook
+  },
+  {
+    path: '/review',
+    name: 'review',
+    component: Review
   }
 ]
 
