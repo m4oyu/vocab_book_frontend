@@ -1,6 +1,6 @@
 # vocab-book-front
 翻訳&単語帳アプリケーションのフロントエンドリポジトリです。\
-App(demo): http://www.vocabulary-book.com \
+App(demo)(closed now): http://www.vocabulary-book.com \
 サーバサイド：https://github.com/m4oyu/vocab_book_backend
 
 ## Remote Deploy  (GCE/Ubuntu)
